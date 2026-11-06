@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto de Enfoque - Escuela de Manejo</title>
+    <!-- Tailwind CSS desde CDN -->
+    <script src="https://cdn.9tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#083B52',    /* Azul Marino del vehículo y texto */
+                            blueDark: '#052737',
+                            green: '#00D215',   /* Verde vibrante de la moto */
+                            greenHover: '#00B012',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(8, 59, 82, 0.92) 0%, rgba(5, 39, 55, 0.95) 100%), 
+                        url('img/carrospf.jpeg') center/cover no-repeat;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen font-sans">
+
+    <!-- BARRA DE NAVEGACIÓN PRINCIPAL -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo Oficial -->
+                <a href="#" class="flex items-center gap-3">
+                    <img src="img/logoPF.jpeg" alt="Punto de Enfoque" class="h-14 w-auto rounded-lg shadow-xs hover:scale-105 transition-transform">
+                </a>
+
+                <!-- Navegación Escritorio -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#inicio" class="text-sm font-semibold text-slate-700 hover:text-brand-green transition-colors">Inicio</a>
+                    <a href="#cursos" class="text-sm font-semibold text-slate-700 hover:text-brand-green transition-colors">Cursos</a>
+                    <a href="#nosotros" class="text-sm font-semibold text-slate-700 hover:text-brand-green transition-colors">¿Por qué nosotros?</a>
+                    <a href="#test" class="text-sm font-semibold text-slate-700 hover:text-brand-green transition-colors">Test Teórico</a>
+                    <a href="#contacto" class="text-sm font-semibold text-slate-700 hover:text-brand-green transition-colors">Contacto</a>
+                </nav>
+
+                <!-- Área de Usuario / Botones de Login -->
+                <div class="flex items-center gap-3" id="authContainer">
+                    <button onclick="openModal('login')" class="text-sm font-bold text-brand-blue hover:text-brand-green px-4 py-2 transition-colors">
+                        Iniciar Sesión
+                    </button>
+                    <button onclick="openModal('register')" class="bg-brand-green hover:bg-brand-greenHover text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-md shadow-brand-green/20 hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                        <i data-lucide="user-plus" class="w-4 h-4 inline-block mr-1"></i> Registrarse
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- BANNER HERO -->
+    <section id="inicio" class="hero-bg text-white py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-green/20 border border-brand-green/40 text-brand-green text-xs font-bold uppercase tracking-wider mb-6">
+                    <i data-lucide="shield-check" class="w-4 h-4"></i> Instructores Certificados
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-tight mb-6">
+                    Conduce con <br>
+                    <span class="text-brand-green">Seguridad y Confianza</span>
+                </h1>
+                <p class="text-slate-200 text-lg md:text-xl mb-8 leading-relaxed font-normal">
+                    En <strong>Punto de Enfoque</strong> nos enfocamos en tu seguridad al volante. Aprendizaje práctico en auto y moto, horarios flexibles y preparación garantizada.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contacto" class="inline-flex justify-center items-center gap-2 bg-brand-green hover:bg-brand-greenHover text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-brand-green/30 transition-all hover:scale-105">
+                        <i data-lucide="calendar"></i> Inscribete 
+                    </a>
+                    <a href="#cursos" class="inline-flex justify-center items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl backdrop-blur-md border border-white/20 transition-all">
+                        Ver Cursos Disponibles
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+                     <!-- SECCIÓN ¿POR QUÉ NOSOTROS? -->
+    <section id="nosotros" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-blue mb-4">¿Por qué elegir Punto de Enfoque?</h2>
+                <p class="text-slate-600 text-lg">Te brindamos las mejores herramientas, conocimientos integrales y el mejor ambiente para que aprendas a conducir con total seguridad y confianza.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Razón 1: Seguridad -->
+                <div class="bg-slate-50 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col overflow-hidden hover:-translate-y-1">
+                    <!-- Espacio para imagen -->
+                    <img src="img/tu-imagen-1.jpg" alt="Seguridad Garantizada" class="w-full h-48 object-cover bg-slate-200">
+                    
+                    <div class="p-6 flex flex-col items-center text-center flex-grow">
+                        <div class="w-14 h-14 bg-brand-green/10 text-brand-green rounded-2xl flex items-center justify-center mb-4 transform rotate-3 hover:rotate-6 transition-transform -mt-12 shadow-sm bg-white border-2 border-brand-green/20">
+                            <i data-lucide="shield-check" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Seguridad Garantizada</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Contamos con seguro full cover en todos nuestros vehículos para tu total tranquilidad durante las prácticas. Sin costos sorpresa por incidentes.</p>
+                    </div>
+                </div>
+
+                <!-- Razón 2: Mecánica Básica -->
+                <div class="bg-slate-50 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col overflow-hidden hover:-translate-y-1">
+                    <!-- Espacio para imagen -->
+                    <img src="img/mec1.jpeg" alt="Mecánica Básica Preventiva" class="w-full h-48 object-cover bg-slate-200">
+                    
+                    <div class="p-6 flex flex-col items-center text-center flex-grow">
+                        <div class="w-14 h-14 bg-brand-blue/10 text-brand-blue rounded-2xl flex items-center justify-center mb-4 transform -rotate-3 hover:-rotate-6 transition-transform -mt-12 shadow-sm bg-white border-2 border-brand-blue/20">
+                            <i data-lucide="wrench" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Mecánica Básica Preventiva</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Aprenderás a revisar el aceite, cambiar llantas de repuesto, entender el sistema de luces, ubicación de fusibles, baterías y mandos, tanto en autos como en motos.</p>
+                    </div>
+                </div>
+
+                <!-- Razón 3: Prácticas Reales -->
+                <div class="bg-slate-50 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col overflow-hidden hover:-translate-y-1">
+                    <!-- Espacio para imagen -->
+                    <img src="img/instructor2.jpeg" alt="Prácticas en Escenarios Reales" class="w-full h-48 object-cover bg-slate-200">
+                    
+                    <div class="p-6 flex flex-col items-center text-center flex-grow">
+                        <div class="w-14 h-14 bg-brand-green/10 text-brand-green rounded-2xl flex items-center justify-center mb-4 transform rotate-3 hover:rotate-6 transition-transform -mt-12 shadow-sm bg-white border-2 border-brand-green/20">
+                            <i data-lucide="route" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Prácticas en Escenarios Reales</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">No nos limitamos a pistas cerradas. Salimos a intersecciones reales y realizamos recorridos en carretera hacia departamentos cercanos a Managua.</p>
+                    </div>
+                </div>
+                
+                <!-- Razón 4: Flexibilidad -->
+                <div class="bg-slate-50 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col overflow-hidden hover:-translate-y-1">
+                    <!-- Espacio para imagen -->
+                    <img src="img/tu-imagen-4.jpg" alt="Horarios Flexibles" class="w-full h-48 object-cover bg-slate-200">
+                    
+                    <div class="p-6 flex flex-col items-center text-center flex-grow">
+                        <div class="w-14 h-14 bg-brand-blue/10 text-brand-blue rounded-2xl flex items-center justify-center mb-4 transform -rotate-3 hover:-rotate-6 transition-transform -mt-12 shadow-sm bg-white border-2 border-brand-blue/20">
+                            <i data-lucide="clock" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Horarios Flexibles</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Nos adaptamos a tu tiempo. Puedes agendar tus clases según tu disponibilidad, organizando los encuentros mediante reservación previa.</p>
+                    </div>
+                </div>
+
+                <!-- Razón 5: Instructores -->
+                <div class="bg-slate-50 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col overflow-hidden hover:-translate-y-1">
+                    <!-- Espacio para imagen -->
+                    <img src="img/Instructor.jpeg" alt="Instructores Expertos" class="w-full h-48 object-cover bg-slate-200">
+                    
+                    <div class="p-6 flex flex-col items-center text-center flex-grow">
+                        <div class="w-14 h-14 bg-brand-green/10 text-brand-green rounded-2xl flex items-center justify-center mb-4 transform rotate-3 hover:rotate-6 transition-transform -mt-12 shadow-sm bg-white border-2 border-brand-green/20">
+                            <i data-lucide="users" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Instructores Expertos</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Nuestros instructores están altamente capacitados y armados de paciencia para brindarte clases 100% personalizadas a tu ritmo de aprendizaje.</p>
+                    </div>
+                </div>
+
+                <!-- Razón 6: Acompañamiento -->
+                <div class="bg-slate-50 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col overflow-hidden hover:-translate-y-1">
+                    <!-- Espacio para imagen -->
+                    <img src="img/tu-imagen-6.jpg" alt="Asesoría Completa" class="w-full h-48 object-cover bg-slate-200">
+                    
+                    <div class="p-6 flex flex-col items-center text-center flex-grow">
+                        <div class="w-14 h-14 bg-brand-blue/10 text-brand-blue rounded-2xl flex items-center justify-center mb-4 transform -rotate-3 hover:-rotate-6 transition-transform -mt-12 shadow-sm bg-white border-2 border-brand-blue/20">
+                            <i data-lucide="file-check-2" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Asesoría Completa</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Te acompañamos y prestamos el vehículo para tu examen práctico en Tránsito. Te asesoramos en cada paso del trámite de tu licencia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- CURSOS DISPONIBLES -->
+    <section id="cursos" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-blue mb-4">Nuestros Cursos de Conducción</h2>
+                <p class="text-slate-600 text-lg">Clases diseñadas para principiantes y conductores que buscan perfeccionar su técnica.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Curso Vehículo -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-md hover:shadow-xl transition-all border-t-4 border-t-brand-blue flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-blue/10 text-brand-blue rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="car" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Curso de carro Intensivo Aspirante de Categoria 3</h3>
+                        <p class="text-slate-600 mb-6 text-sm">Precio:  U$180 dólares o su equivalente C$6,610 córdobas</p>
+                        <ul class="space-y-3 text-sm text-slate-700 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i> 15 Hrs carro Mecánico o Automático</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i> Seminario Teórico</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Clases 100% personalizadas </li>
+                             <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Ambiente climatizado A.C </li>
+                              <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Horarios flexibles al estudiante  </li>
+                               <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Asesoramiento para realizar Trámite de Licencia </li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Preparación para examen teórico y práctico, que realiza en Tránsito.  </li>
+                                 <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Material Didáctico de Ley Nº 431 </li>
+                                  <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Acompañamiento y préstamo de vehículo para realizar Exámen Práctico en Tránsito Nacional.(Sin ningún costo adicional)</li>
+                                   <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Seguro Full Cover del vehículo (no se cobraran daños del vehículo por cualquier inconveniente en hora de clases)</li>
+                                    <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Las clases se dividen en dos horas prácticas por encuentro </li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('register')" class="w-full bg-brand-blue hover:bg-brand-blueDark text-white font-bold py-3 rounded-xl transition-colors">Inscribirme</button>
+                </div>
+
+                <!-- Curso Moto -->
+                <div class="bg-white rounded-2xl p-8 border border-brand-green shadow-xl relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute top-0 right-0 bg-brand-green text-white text-xs font-bold px-4 py-1 rounded-bl-lg uppercase">Más Popular</div>
+                    <div>
+                        <div class="w-12 h-12 bg-brand-green/10 text-brand-green rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="bike" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">CURSO INTENSIVO PARA PRINCIPIANTES DE MOTO LICENCIA CATEGORÍA 1,2</h3>
+                        <p class="text-slate-600 mb-6 text-sm">El Curso Incluye</p>
+                        <ul class="space-y-3 text-sm text-slate-700 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>15 Hrs de Clases Prácticas</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Seminario Teórico (Domingo)</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Asesoramiento en los Trámite de Licencia (inscripciones y adelanto de fecha).</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Ley 431 como material de estudio.</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Acompañamiento y préstamo de la moto para realizar el examen práctico en transito nacional. </li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Horarios flexibles al estudiante (con reservación)El pago puede ser 60% en reservación del cupo y el otro 40% a mitad del curso.</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Sin Costos Adicionales</li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('register')" class="w-full bg-brand-green hover:bg-brand-greenHover text-white font-bold py-3 rounded-xl transition-colors">Inscribirme</button>
+                </div>
+
+                <!-- Curso Combinado -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-md hover:shadow-xl transition-all border-t-4 border-t-brand-blue flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-blue/10 text-brand-blue rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">COMBO PLUS MOTO/CARRO PARA LICENCIA CATEGORÍA 1,2,3 </h3>
+                        <p class="text-slate-600 mb-6 text-sm">El Curso Incluye</p>
+                        <ul class="space-y-3 text-sm text-slate-700 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>15 Hrs de Clases Prácticas MOTO</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i> 15 Hrs de Clases Prácticas CARRO con Aire Acondicionado</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Clases prácticas FULL CALLE</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i> Seminario Teórico (Domingo)</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Asesoramiento en los Trámite de Licencia (inscripciones y adelanto de fecha).</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Ley 431 como material de estudio.</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Acompañamiento y préstamo de vehículo para realizar Exámen Práctico en Tránsito Nacional (3 préstamos de los vehículos).</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Seguro full cover especial, es decir que ante cualquier choque o caída de la moto, la escuela de manejo se hace responsable, NO el Estudiante.</li>
+                             <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Horarios flexibles al estudiante (con reservación)</li>
+                              <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>El pago puede ser 60% en reservación del cupo y el otro 40% a mitad del curso</li>
+                               <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>ÚNICO PAGO DE $260°° Dolares.</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-green"></i>Sin Costos Adicionales</li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('register')" class="w-full bg-brand-blue hover:bg-brand-blueDark text-white font-bold py-3 rounded-xl transition-colors">Inscribirme</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- SECCIÓN DE CONTACTO Y REDES SOCIALES -->
+    <section id="contacto" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-blue mb-4">Contáctanos y Síguenos</h2>
+                <p class="text-slate-600 text-lg">Estamos listos para responder todas tus dudas. Comunícate directamente con nosotros o visítanos en nuestras redes sociales.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Tarjeta: Teléfonos y WhatsApp -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 hover:shadow-lg transition-all text-center flex flex-col items-center">
+                    <div class="w-14 h-14 bg-brand-green/10 text-brand-green rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="phone-call" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Teléfonos & WhatsApp</h3>
+                    <p class="text-slate-600 text-sm mb-6">Atención inmediata para información e inscripciones</p>
+                    
+                    <div class="space-y-3 w-full">
+                        <a href="https://wa.me/50587736440" target="_blank" class="flex items-center justify-center gap-2 w-full bg-brand-green hover:bg-brand-greenHover text-white font-bold py-3 rounded-xl transition-all shadow-md">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i> WhatsApp: 8773-6440
+                        </a>
+                        <a href="https://wa.me/50577920769" target="_blank" class="flex items-center justify-center gap-2 w-full bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 rounded-xl transition-all">
+                            <i data-lucide="phone" class="w-5 h-5"></i> Teléfono: 7792-0769
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta: Redes Sociales -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 hover:shadow-lg transition-all text-center flex flex-col items-center">
+                    <div class="w-14 h-14 bg-brand-blue/10 text-brand-blue rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="share-2" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Nuestras Redes Sociales</h3>
+                    <p class="text-slate-600 text-sm mb-6">Síguenos para ver videos de clases, tips de manejo y promociones</p>
+                    
+                    <div class="space-y-3 w-full">
+                        <a href="https://www.facebook.com/p/Escuela-de-Manejo-Punto-de-Enfoque-61557688827385/" target="_blank" class="flex items-center justify-center gap-2 w-full bg-[#1877F2] hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-all shadow-md">
+                            <i data-lucide="facebook" class="w-5 h-5"></i> Facebook
+                        </a>
+                        <a href="https://www.tiktok.com/@punto.de.enfoque505?_r=1&_t=ZS-9AEmbMidoPt"target="_blank" class="flex items-center justify-center gap-2 w-full bg-black hover:bg-slate-900 text-white font-bold py-3 rounded-xl transition-all shadow-md">
+                            <i data-lucide="video" class="w-5 h-5"></i> TikTok
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta: Ubicación -->
+<div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 hover:shadow-lg transition-all text-center flex flex-col items-center md:col-span-2 lg:col-span-1">
+    <div class="w-14 h-14 bg-brand-green/10 text-brand-green rounded-full flex items-center justify-center mb-6">
+        <i data-lucide="map-pin" class="w-7 h-7"></i>
+    </div>
+    <h3 class="text-xl font-bold text-slate-900 mb-2">Nuestra Ubicación</h3>
+    <p class="text-slate-600 text-sm mb-4">
+        Managua: Costado Sur del Polideportivo España o del portón principal de la UCC, 1 cuadra arriba.
+    </p>
+    <div class="mt-auto w-full">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Polideportivo+España+Managua" target="_blank" class="inline-flex items-center justify-center gap-2 w-full bg-brand-blue hover:bg-brand-blueDark text-white font-bold py-3 rounded-xl transition-all shadow-md">
+            <i data-lucide="navigation" class="w-5 h-5"></i> ¿Cómo Llegar? (Google Maps)
+        </a>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+
+<!-- ========================================== -->
+    <!-- 1. SECCIÓN DEL TEST TEÓRICO                -->
+    <!-- ========================================== -->
+    <section id="test-teorico" class="py-20 bg-slate-50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Encabezado del Test -->
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Simulador de Examen Teórico (Ley 431)</h2>
+                <p class="text-slate-600 text-lg">Pon a prueba tus conocimientos antes de ir a Tránsito.</p>
+            </div>
+
+            <!-- Contenedor Principal del Test -->
+            <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 md:p-10">
+                
+                <!-- PANTALLA 1: Inicio -->
+                <div id="quiz-start" class="text-center block">
+                    <div class="w-20 h-20 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="file-text" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">5 Preguntas Aleatorias</h3>
+                    <p class="text-slate-600 mb-8">Cada vez que inicies, se seleccionarán 5 preguntas distintas del banco de datos oficial. ¡Mucha suerte!</p>
+                    <button onclick="startQuiz()" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl transition-all">
+                        Comenzar Test Ahora
+                    </button>
+                </div>
+
+                <!-- PANTALLA 2: Preguntas -->
+                <div id="quiz-question" class="hidden">
+                    <div class="flex justify-between items-center mb-6 text-sm font-bold text-slate-500 uppercase tracking-wider">
+                        <span id="question-counter">Pregunta 1 de 5</span>
+                        <span id="score-display" class="text-blue-600">Puntos: 0</span>
+                    </div>
+                    
+                    <h3 id="question-text" class="text-xl font-bold text-slate-900 mb-8 leading-relaxed">
+                        <!-- Aquí va la pregunta -->
+                    </h3>
+                    
+                    <div id="options-container" class="space-y-3">
+                        <!-- Aquí van los botones de opciones -->
+                    </div>
+
+                    <div id="feedback-container" class="hidden"></div>
+                    
+                    <button id="next-btn" onclick="nextQuestion()" class="hidden w-full mt-8 bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 px-8 rounded-xl transition-all">
+                        Siguiente Pregunta
+                    </button>
+                </div>
+
+                <!-- PANTALLA 3: Resultados -->
+                <div id="quiz-results" class="hidden text-center">
+                    <div id="result-icon"></div>
+                    <h3 id="result-title" class="text-2xl font-bold text-slate-900 mb-4">Resultado</h3>
+                    <p class="text-slate-600 mb-2">Tu puntuación final es:</p>
+                    <p id="result-score" class="text-5xl font-black text-slate-900 mb-8">0 / 5</p>
+                    <button onclick="startQuiz()" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl transition-all">
+                        Volver a intentar (Nuevas Preguntas)
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 2. SECCIÓN DE VIDEOS MULTIMEDIA            -->
+    <!-- ========================================== -->
+    <section id="videos" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wider mb-4">
+                    <i data-lucide="play-circle" class="w-4 h-4"></i> Galería Multimedia
+                </div>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Aprende Viendo</h2>
+                <p class="text-slate-600 text-lg">Revisa nuestros videos de prácticas, consejos de mecánica básica y testimonios para que te prepares mejor.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Video 1 -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col">
+                    <div class="aspect-video bg-black w-full relative">
+                        <video class="w-full h-full object-cover" controls preload="metadata">
+                            <source src="videos/video-1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Manejo en Rotondas de Managua</h3>
+                        <p class="text-slate-600 text-sm">Técnica correcta para ingresar, circular y salir de una rotonda respetando la preferencia.</p>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col">
+                    <div class="aspect-video bg-black w-full relative">
+                        <video class="w-full h-full object-cover" controls preload="metadata">
+                            <source src="videos/video-2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Cómo cambiar una llanta</h3>
+                        <p class="text-slate-600 text-sm">Pasos seguros para colocar la gata hidráulica y hacer el cambio de llanta de repuesto.</p>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col">
+                    <div class="aspect-video bg-black w-full relative">
+                        <video class="w-full h-full object-cover" controls preload="metadata">
+                            <source src="videos/video-3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Experiencia de nuestros alumnos</h3>
+                        <p class="text-slate-600 text-sm">Conoce cómo nuestros instructores te ayudan a perder el miedo a conducir en carretera.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Teórico - Punto de Enfoque</title>
+    <!-- Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#083B52',
+                            blueDark: '#052737',
+                            green: '#00D215',
+                            greenHover: '#00B012',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+    <!-- ========================================== -->
+    <!-- SECCIÓN DEL TEST TEÓRICO (CON RELOJ)       -->
+    <!-- ========================================== -->
+    <section id="test-teorico" class="py-20 bg-slate-50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Simulador de Examen Teórico (Ley 431)</h2>
+                <p class="text-slate-600 text-lg">Pon a prueba tus conocimientos antes de ir a Tránsito.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 md:p-10">
+                
+                <!-- PANTALLA 1: Inicio -->
+                <div id="quiz-start" class="text-center block">
+                    <div class="w-20 h-20 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="timer" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">5 Preguntas | 5 Minutos</h3>
+                    <p class="text-slate-600 mb-8">Tendrás 5 minutos para completar el test aleatorio. Si el tiempo se acaba, el examen terminará automáticamente.</p>
+                    <button onclick="startQuiz()" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl transition-all">
+                        Comenzar Test Ahora
+                    </button>
+                </div>
+
+                <!-- PANTALLA 2: Preguntas -->
+                <div id="quiz-question" class="hidden">
+                    <!-- BARRA SUPERIOR CON RELOJ -->
+                    <div class="flex justify-between items-center mb-6 text-sm font-bold uppercase tracking-wider pb-4 border-b border-slate-100">
+                        <span id="question-counter" class="text-slate-500">1 de 5</span>
+                        
+                        <!-- RELOJ ANIMADO -->
+                        <div id="timer-display" class="flex items-center gap-1.5 px-3 py-1 bg-slate-100 rounded-full text-slate-700 transition-colors">
+                            <i data-lucide="clock" class="w-4 h-4"></i>
+                            <span id="timer-text">05:00</span>
+                        </div>
+
+                        <span id="score-display" class="text-blue-600">Puntos: 0</span>
+                    </div>
+                    
+                    <h3 id="question-text" class="text-xl font-bold text-slate-900 mb-8 leading-relaxed"></h3>
+                    
+                    <div id="options-container" class="space-y-3"></div>
+                    <div id="feedback-container" class="hidden"></div>
+                    
+                    <button id="next-btn" onclick="nextQuestion()" class="hidden w-full mt-8 bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 px-8 rounded-xl transition-all">
+                        Siguiente Pregunta
+                    </button>
+                </div>
+
+                <!-- PANTALLA 3: Resultados -->
+                <div id="quiz-results" class="hidden text-center">
+                    <div id="result-icon"></div>
+                    <h3 id="result-title" class="text-2xl font-bold text-slate-900 mb-4">Resultado</h3>
+                    <p class="text-slate-600 mb-2">Tu puntuación final es:</p>
+                    <p id="result-score" class="text-5xl font-black text-slate-900 mb-8">0 / 5</p>
+                    <button onclick="startQuiz()" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl transition-all">
+                        Volver a intentar
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SCRIPT DEL TEST (CON RELOJ)                -->
+    <!-- ========================================== -->
+    <script>
+        const questionBank = [
+            { question: "¿Cuál es el límite máximo de velocidad permitida en zonas escolares?", options: [{ text: "25 km/h", correct: true }, { text: "45 km/h", correct: false }, { text: "15 km/h", correct: false }, { text: "60 km/h", correct: false }] },
+            { question: "¿Quién tiene la preferencia de paso en una rotonda?", options: [{ text: "El vehículo que ya se encuentra circulando dentro de ella", correct: true }, { text: "El vehículo que va a ingresar a la rotonda", correct: false }, { text: "El vehículo más pesado", correct: false }, { text: "El vehículo que circula más rápido", correct: false }] },
+            { question: "Según la Ley 431, ¿qué distancia mínima debes mantener con el vehículo de adelante en carretera?", options: [{ text: "La suficiente para detenerse en caso de emergencia sin colisionar", correct: true }, { text: "2 metros exactos", correct: false }, { text: "No hay una distancia establecida", correct: false }, { text: "50 metros sin importar la velocidad", correct: false }] },
+            { question: "¿Qué significa la luz amarilla o ámbar en un semáforo?", options: [{ text: "Precaución, advierte que el semáforo está a punto de cambiar a rojo", correct: true }, { text: "Acelerar para cruzar antes de que cambie a rojo", correct: false }, { text: "Detenerse inmediatamente donde esté el vehículo", correct: false }, { text: "Derecho de paso exclusivo", correct: false }] },
+            { question: "¿Qué documentos es obligatorio portar mientras se conduce?", options: [{ text: "Licencia de conducir y circulación del vehículo", correct: true }, { text: "Solo la cédula de identidad", correct: false }, { text: "Seguro del vehículo únicamente", correct: false }, { text: "Ninguno, si el vehículo es propio", correct: false }] },
+            { question: "¿Cuál es el límite de velocidad en las pistas o bulevares de la ciudad de Managua?", options: [{ text: "60 km/h", correct: true }, { text: "45 km/h", correct: false }, { text: "80 km/h", correct: false }, { text: "100 km/h", correct: false }] },
+            { question: "¿A qué distancia se deben hacer los cambios de luces altas a bajas al acercarse otro vehículo en sentido contrario?", options: [{ text: "A no menos de 150 metros", correct: true }, { text: "A 50 metros", correct: false }, { text: "A 10 metros", correct: false }, { text: "Solo si el otro conductor hace cambio", correct: false }] },
+            { question: "¿Cuál es la sanción por conducir en estado de ebriedad extrema según la Ley 431?", options: [{ text: "Multa, suspensión de licencia, retención del vehículo y seminario", correct: true }, { text: "Solo una amonestación verbal", correct: false }, { text: "Una multa que se puede pagar al día siguiente", correct: false }, { text: "Retención del vehículo por 24 horas sin multa", correct: false }] },
+            { question: "¿Qué debes hacer al escuchar la sirena de una ambulancia o vehículo de bomberos?", options: [{ text: "Ceder el paso apartándose hacia el lado derecho de la vía y deteniéndose", correct: true }, { text: "Acelerar para no estorbarles", correct: false }, { text: "Detenerse en medio de la vía inmediatamente", correct: false }, { text: "Ignorar la sirena si no los ves cerca", correct: false }] },
+            { question: "¿Cuál es la velocidad máxima permitida en carreteras en mar abierto o vías de acceso rápido para vehículos ligeros?", options: [{ text: "100 km/h", correct: true }, { text: "80 km/h", correct: false }, { text: "60 km/h", correct: false }, { text: "120 km/h", correct: false }] },
+            { question: "¿Cuál es el límite máximo de velocidad en calles, avenidas y zonas de acceso a los barrios?", options: [{ text: "45 km/h", correct: true }, { text: "60 km/h", correct: false }, { text: "25 km/h", correct: false }, { text: "80 km/h", correct: false }] },
+            { question: "¿Qué indica una doble línea amarilla continua en el centro de la carretera?", options: [{ text: "Prohibido adelantar en ambos sentidos", correct: true }, { text: "Permitido adelantar si no viene nadie", correct: false }, { text: "Zona de estacionamiento", correct: false }, { text: "Que la vía es de un solo sentido", correct: false }] },
+            { question: "¿A partir de qué concentración de alcohol en la sangre se considera que un conductor está en estado de ebriedad ligera?", options: [{ text: "0.5 a 1 gramo por litro de sangre", correct: true }, { text: "0.1 a 0.4 gramos por litro de sangre", correct: false }, { text: "1.1 a 2 gramos por litro de sangre", correct: false }, { text: "Más de 2 gramos por litro de sangre", correct: false }] },
+            { question: "¿Qué maniobra es obligatorio realizar ante una señal de ALTO?", options: [{ text: "Detener completamente el vehículo y ceder el paso", correct: true }, { text: "Solo reducir la velocidad si no viene nadie", correct: false }, { text: "Tocar la bocina y continuar", correct: false }, { text: "Frenar levemente", correct: false }] },
+            { question: "Al estacionar su vehículo en una pendiente cuesta abajo, ¿hacia dónde deben quedar giradas las llantas delanteras?", options: [{ text: "Hacia el borde de la acera o cuneta (derecha)", correct: true }, { text: "Hacia el centro de la calle (izquierda)", correct: false }, { text: "Completamente rectas", correct: false }, { text: "No importa la posición de las llantas", correct: false }] },
+            { question: "En una intersección sin semáforos ni señales de ALTO, ¿quién tiene la preferencia de paso?", options: [{ text: "El vehículo que se aproxima por el lado derecho", correct: true }, { text: "El vehículo que va más rápido", correct: false }, { text: "El vehículo que se aproxima por el lado izquierdo", correct: false }, { text: "El vehículo de mayor tamaño", correct: false }] },
+            { question: "¿Cuál es el uso correcto del carril izquierdo en una carretera de dos carriles en el mismo sentido?", options: [{ text: "Exclusivamente para adelantar o girar a la izquierda", correct: true }, { text: "Para circular a menor velocidad", correct: false }, { text: "Para conducir de forma constante si voy rápido", correct: false }, { text: "Para estacionarse en caso de emergencia", correct: false }] },
+            { question: "¿A qué distancia mínima se deben colocar los triángulos reflectantes si tu vehículo sufre un desperfecto en carretera?", options: [{ text: "A 50 metros en la parte trasera y 50 metros en la delantera", correct: true }, { text: "A 10 metros en la parte trasera", correct: false }, { text: "Justo detrás del vehículo", correct: false }, { text: "A 100 metros solo en la parte trasera", correct: false }] },
+            { question: "¿Es obligatorio el uso del casco protector para el pasajero de una motocicleta?", options: [{ text: "Sí, es obligatorio tanto para el conductor como para el pasajero", correct: true }, { text: "No, solo es obligatorio para el conductor", correct: false }, { text: "Solo si viajan en carretera abierta", correct: false }, { text: "Solo si el pasajero es menor de edad", correct: false }] },
+            { question: "¿Qué significa una línea blanca discontinua (punteada) en el centro de la vía?", options: [{ text: "Que se puede adelantar con precaución si el carril contrario está libre", correct: true }, { text: "Que está estrictamente prohibido adelantar", correct: false }, { text: "Que la vía termina más adelante", correct: false }, { text: "Que debes reducir la velocidad a 25 km/h", correct: false }] },
+            { question: "¿A qué distancia mínima de una intersección o esquina está prohibido estacionar un vehículo?", options: [{ text: "A menos de 5 metros", correct: true }, { text: "A menos de 2 metros", correct: false }, { text: "A menos de 10 metros", correct: false }, { text: "Se puede estacionar justo en la esquina", correct: false }] },
+            { question: "Según la ley, ¿qué es la Infracción de Mayor Peligrosidad?", options: [{ text: "Faltas gravísimas como conducir ebrio, a exceso de velocidad o huir", correct: true }, { text: "Estacionarse en línea amarilla", correct: false }, { text: "Conducir con una luz fundida", correct: false }, { text: "No portar triángulo de seguridad", correct: false }] },
+            { question: "¿Qué debe hacer el conductor al acercarse a un cruce peatonal señalizado (líneas de cebra)?", options: [{ text: "Reducir la velocidad y detenerse para ceder el paso a los peatones", correct: true }, { text: "Tocar la bocina para que el peatón se apure", correct: false }, { text: "Mantener la velocidad, el vehículo tiene prioridad", correct: false }, { text: "Esquivar al peatón acelerando", correct: false }] },
+            { question: "¿Qué prohibición existe con respecto al uso de teléfonos celulares mientras se conduce?", options: [{ text: "Prohibido su uso a menos que se utilice un dispositivo de manos libres", correct: true }, { text: "Se puede enviar mensajes de texto si se va despacio", correct: false }, { text: "Se puede usar solo en carreteras fuera de la ciudad", correct: false }, { text: "No hay ninguna prohibición en la ley", correct: false }] },
+            { question: "Si un oficial de tránsito te hace señal de parada, ¿qué debes hacer?", options: [{ text: "Detener el vehículo a la orilla de la vía y esperar las indicaciones", correct: true }, { text: "Frenar en medio de la calle", correct: false }, { text: "Reducir la velocidad y preguntarle desde el auto en movimiento", correct: false }, { text: "Bajar del vehículo inmediatamente y caminar hacia él", correct: false }] }
+        ];
+
+        let quizData = [];
+        let currentQuestion = 0;
+        let score = 0;
+        let hasAnswered = false;
+        
+        let timerInterval;
+        let timeRemaining = 300; 
+
+        function shuffleArray(originalArray) {
+            const array = [...originalArray];
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        
+        function formatTime(seconds) {
+            const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+            const s = (seconds % 60).toString().padStart(2, '0');
+            return `${m}:${s}`;
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval); 
+            timeRemaining = 300; 
+            
+            const timerDisplay = document.getElementById('timer-display');
+            const timerText = document.getElementById('timer-text');
+            
+            timerDisplay.className = "flex items-center gap-1.5 px-3 py-1 bg-slate-100 rounded-full text-slate-700 font-mono transition-colors";
+            timerText.innerText = formatTime(timeRemaining);
+
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                timerText.innerText = formatTime(timeRemaining);
+                
+                if (timeRemaining <= 60 && timeRemaining > 0) {
+                    timerDisplay.className = "flex items-center gap-1.5 px-3 py-1 bg-red-100 rounded-full text-red-600 font-mono font-bold animate-pulse";
+                }
+
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    showResults(true); 
+                }
+            }, 1000); 
+        }
+
+        function startQuiz() {
+            const mixedQuestions = shuffleArray(questionBank).slice(0, 5);
+            quizData = mixedQuestions.map(q => ({
+                question: q.question,
+                options: shuffleArray(q.options)
+            }));
+            
+            document.getElementById('quiz-start').classList.replace('block', 'hidden');
+            document.getElementById('quiz-results').classList.replace('block', 'hidden');
+            document.getElementById('quiz-question').classList.replace('hidden', 'block');
+            
+            currentQuestion = 0;
+            score = 0;
+            
+            startTimer(); 
+            loadQuestion();
+            
+            if(window.lucide) lucide.createIcons();
+        }
+
+        function loadQuestion() {
+            hasAnswered = false;
+            const q = quizData[currentQuestion];
+            
+            document.getElementById('question-counter').innerText = `Pregunta ${currentQuestion + 1} de ${quizData.length}`;
+            document.getElementById('score-display').innerText = `Puntos: ${score}`;
+            document.getElementById('question-text').innerText = q.question;
+            
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            
+            document.getElementById('feedback-container').classList.replace('block', 'hidden');
+            document.getElementById('next-btn').classList.replace('block', 'hidden');
+
+            q.options.forEach((opt) => {
+                const btn = document.createElement('button');
+                btn.className = 'w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-blue-500 hover:bg-slate-50 transition-all font-semibold text-slate-700 cursor-pointer';
+                btn.innerText = opt.text;
+                btn.onclick = () => selectOption(btn, opt.correct);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function selectOption(selectedBtn, isCorrect) {
+            if (hasAnswered) return;
+            hasAnswered = true;
+
+            const buttons = document.getElementById('options-container').children;
+            const feedback = document.getElementById('feedback-container');
+            
+            Array.from(buttons).forEach(btn => {
+                btn.disabled = true;
+                btn.classList.remove('cursor-pointer', 'hover:border-blue-500', 'hover:bg-slate-50');
+                
+                const isThisBtnCorrect = quizData[currentQuestion].options.find(o => o.text === btn.innerText).correct;
+                
+                if (isThisBtnCorrect) {
+                    btn.classList.replace('border-slate-200', 'border-green-500');
+                    btn.classList.add('bg-green-50', 'text-green-700');
+                } else if (btn === selectedBtn) {
+                    btn.classList.replace('border-slate-200', 'border-red-500');
+                    btn.classList.add('bg-red-50', 'text-red-700');
+                }
+            });
+
+            feedback.classList.replace('hidden', 'block');
+            if (isCorrect) {
+                score++;
+                document.getElementById('score-display').innerText = `Puntos: ${score}`;
+                feedback.className = 'mt-6 p-4 rounded-xl text-sm font-bold bg-green-100 text-green-800 border border-green-200 block';
+                feedback.innerHTML = '¡Respuesta Correcta!';
+            } else {
+                feedback.className = 'mt-6 p-4 rounded-xl text-sm font-bold bg-red-100 text-red-800 border border-red-200 block';
+                feedback.innerHTML = 'Respuesta Incorrecta. Revisa la opción marcada en verde.';
+            }
+            
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.classList.replace('hidden', 'block');
+            nextBtn.innerHTML = currentQuestion === quizData.length - 1 ? 'Ver Resultados Finales' : 'Siguiente Pregunta';
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+            } else {
+                showResults(false);
+            }
+        }
+
+        function showResults(isTimeOut = false) {
+            clearInterval(timerInterval); 
+            
+            document.getElementById('quiz-question').classList.replace('block', 'hidden');
+            document.getElementById('quiz-results').classList.replace('hidden', 'block');
+            document.getElementById('result-score').innerText = `${score} / ${quizData.length}`;
+            
+            const iconContainer = document.getElementById('result-icon');
+            const title = document.getElementById('result-title');
+            
+            if (isTimeOut) {
+                iconContainer.className = 'w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 bg-red-100 text-red-600';
+                title.innerText = '¡Tiempo Agotado!';
+                iconContainer.innerHTML = '<i data-lucide="clock-alert" class="w-10 h-10"></i>';
+            }
+            else if (score === quizData.length) {
+                iconContainer.className = 'w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 bg-green-100 text-green-600';
+                title.innerText = '¡Excelente! Estás listo.';
+                iconContainer.innerHTML = '<i data-lucide="trophy" class="w-10 h-10"></i>';
+            } else if (score >= quizData.length / 2) {
+                iconContainer.className = 'w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 bg-yellow-100 text-yellow-600';
+                title.innerText = 'Buen trabajo, pero debes repasar.';
+                iconContainer.innerHTML = '<i data-lucide="alert-triangle" class="w-10 h-10"></i>';
+            } else {
+                iconContainer.className = 'w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 bg-red-100 text-red-600';
+                title.innerText = 'Necesitas estudiar más la Ley 431.';
+                iconContainer.innerHTML = '<i data-lucide="x-octagon" class="w-10 h-10"></i>';
+            }
+            
+            if(window.lucide) lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
+ 
+
+
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-blue text-white mt-auto py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 border-b border-white/10 pb-8 mb-6">
+                <div class="flex items-center gap-3">
+                    <img src="img/logoPF.jpeg" alt="Punto de Enfoque" class="h-12 w-auto rounded-md bg-white p-1">
+                </div>
+                <p class="text-sm text-slate-300 text-center md:text-right">
+                    © 2026 Escuela de Manejo Punto de Enfoque. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL INICIAR SESIÓN / REGISTRO -->
+    <div id="authModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <!-- Pestañas Login / Registro -->
+            <div class="flex border-b border-slate-200 mb-6">
+                <button id="tabLogin" onclick="switchTab('login')" class="flex-1 pb-3 font-bold text-center border-b-2 border-brand-green text-brand-green">
+                    Iniciar Sesión
+                </button>
+                <button id="tabRegister" onclick="switchTab('register')" class="flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-slate-400 hover:text-slate-600">
+                    Registrarse
+                </button>
+            </div>
+
+            <!-- Formulario Login -->
+            <form id="formLogin" onsubmit="handleAuth(event, 'login')" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Correo Electrónico</label>
+                    <input type="email" required placeholder="correo@ejemplo.com" class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-green">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Contraseña</label>
+                    <input type="password" required placeholder="••••••••" class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-green">
+                </div>
+                <button type="submit" class="w-full bg-brand-green hover:bg-brand-greenHover text-white font-bold py-3.5 rounded-xl transition-colors shadow-md">
+                    Ingresar
+                </button>
+            </form>
+
+            <!-- Formulario Registro -->
+            <form id="formRegister" onsubmit="handleAuth(event, 'register')" class="space-y-4 hidden">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Nombre Completo</label>
+                    <input type="text" id="regName" required placeholder="Juan Pérez" class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-green">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Correo Electrónico</label>
+                    <input type="email" required placeholder="correo@ejemplo.com" class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-green">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Contraseña</label>
+                    <input type="password" required placeholder="Crea una contraseña" class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-green">
+                </div>
+                <button type="submit" class="w-full bg-brand-blue hover:bg-brand-blueDark text-white font-bold py-3.5 rounded-xl transition-colors shadow-md">
+                    Crear Cuenta
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SCRIPTS INTERACTIVOS -->
+    <script>
+        lucide.createIcons();
+
+        function openModal(tab) {
+            document.getElementById('authModal').classList.remove('hidden');
+            switchTab(tab);
+        }
+
+        function closeModal() {
+            document.getElementById('authModal').classList.add('hidden');
+        }
+
+        function switchTab(tab) {
+            const fLogin = document.getElementById('formLogin');
+            const fRegister = document.getElementById('formRegister');
+            const tLogin = document.getElementById('tabLogin');
+            const tRegister = document.getElementById('tabRegister');
+
+            if (tab === 'login') {
+                fLogin.classList.remove('hidden');
+                fRegister.classList.add('hidden');
+                tLogin.className = "flex-1 pb-3 font-bold text-center border-b-2 border-brand-green text-brand-green";
+                tRegister.className = "flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-slate-400 hover:text-slate-600";
+            } else {
+                fLogin.classList.add('hidden');
+                fRegister.classList.remove('hidden');
+                tRegister.className = "flex-1 pb-3 font-bold text-center border-b-2 border-brand-green text-brand-green";
+                tLogin.className = "flex-1 pb-3 font-bold text-center border-b-2 border-transparent text-slate-400 hover:text-slate-600";
+            }
+        }
+
+        function handleAuth(event, type) {
+            event.preventDefault();
+            const userName = type === 'register' ? document.getElementById('regName').value : 'Alumno';
+            
+            // Simular Login
+            document.getElementById('authContainer').innerHTML = `
+                <div class="flex items-center gap-3">
+                    <span class="text-sm font-bold text-brand-blue">Hola, ${userName}</span>
+                    <button onclick="location.reload()" class="text-xs bg-slate-200 hover:bg-slate-300 text-slate-700 px-3 py-1.5 rounded-lg">Salir</button>
+                </div>
+            `;
+            closeModal();
+            alert(`¡Bienvenido a Punto de Enfoque, ${userName}!`);
+        }
+
+        function handleContact(e) {
+            e.preventDefault();
+            alert('¡Gracias por comunicarte con Punto de Enfoque! Pronto nos pondremos en contacto contigo.');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
